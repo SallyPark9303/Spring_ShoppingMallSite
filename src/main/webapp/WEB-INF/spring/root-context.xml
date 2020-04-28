@@ -46,7 +46,7 @@
 
 				<!-- 업로드 패스 설정 --> 
 <bean class="java.lang.String" id="uploadPath">
- <constructor-arg value="D:\ShoppingMallProject\BoardSample\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\BoardEx01\resources" />
+ <constructor-arg value="C:\Users\ParkWonkyoung\Desktop\ShoppingMallProject\BoardSample\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\BoardEx01\resources\" />
 </bean>
 	 				
 

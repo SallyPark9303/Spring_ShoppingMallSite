@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.board.domain.CategoryVO;
 import com.board.domain.GoodsVO;
 import com.board.domain.GoodsViewVO;
+import com.board.domain.OrderListVO;
+import com.board.domain.OrderVO;
+import com.board.domain.ReplyListVO;
 import com.board.mapper.adminMapper;
 
 @Service
@@ -59,6 +62,57 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		mapper.goodsdelete(gdsNum);
 		
+	}
+
+
+	@Override
+	public List<OrderVO> orderList() {
+		// TODO Auto-generated method stub
+		return mapper.orderList();
+	}
+
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) {
+		// TODO Auto-generated method stub
+		return mapper.orderView(order);
+	}
+
+
+	@Override
+	public void delivery(OrderVO order) {
+		// TODO Auto-generated method stub
+		 mapper.delivery(order);
+	}
+
+
+	@Override
+	public void changestock(GoodsVO goods) {
+		// TODO Auto-generated method stub
+		
+		mapper.changestock(goods);
+		
+	}
+
+
+	@Override
+	public List<ReplyListVO> replylist() {
+		// TODO Auto-generated method stub
+		return mapper.replylist();
+	}
+
+
+	@Override
+	public void replydelete(int rnum) {
+		// TODO Auto-generated method stub
+		mapper.replydelete(rnum);
+	}
+
+
+	@Override
+	public List<GoodsVO> allgoodsList() {
+		// TODO Auto-generated method stub
+		return mapper.allgoodsList();
 	}
 
 }

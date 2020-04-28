@@ -6,6 +6,29 @@
 
 <html>
 <head>
+   <link rel="stylesheet" href="../resources/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | E-Shopper</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
 	<title>Home</title>
 	
 	<style>
@@ -46,6 +69,8 @@
  aside#aside li a { color:#000; display:block; padding:10px 0; margin: 10px; border : 0; float: left; }
 aside#aside li a:hover { text-decoration:none;  background:#fff; }
  
+
+ 
  
 aside#aside ul {
     list-style:none;
@@ -62,19 +87,11 @@ aside#aside li:hover > ul.low li a:hover { background:#fff;}
 aside#aside li > ul.low li { width:180px; }
 
 
-    ul, ol, li { list-style:none; margin:0; padding:0; }
-   
-    ul.myMenu {}
-    ul.myMenu > li { display:inline-block; width:90px; padding:5px 10px; background:#eee; text-align:center; position:relative; }
-    ul.myMenu > li ul.submenu { display:none;  position:absolute; top:70px; left:0;}
-    ul.myMenu > li:hover ul.submenu {display:block;}
-    ul.myMenu > li ul.submenu > li { display:inline-block; width:90px; padding:5px 10px; background:#eee; text-align:center; }
-	ul.myMenu > li ul.submenu > li:hover { background:#fff; }
- 
- footer#footer { margin-top:600px; border-radius:50px 50px 0 0; }
- footer#footer div#footer_box { padding:0 20px; }
- 
-	
+
+.thumbImg {padding: 10px;  }	
+.goodsPrice{color: 0000ff;}
+
+.goodsLists{left: 150px;}
 	
 	</style>
 </head>
@@ -100,11 +117,21 @@ aside#aside li > ul.low li { width:180px; }
 
 
 		<section id="container">
-			<div id="container_box">
-	
-			</div>
+<section id="content">
+		<ul>
+
+					<c:forEach items="${allgoodsList }" var="allgoodsList">
+						<li>
+						
+							
+							<div class="goodsThumb"> <img src="${allgoodsList.gdsThumbImg }" class="thumbImg"/></div>
+								<div class="goodsPrice">${allgoodsList.gdsPrice } 원</div>
+						</li>
+					</c:forEach>
+		</ul>
+			</section>
 		</section>
-		
+
 		<footer id="footer">
 			<div id="footer_box">
 				<%@ include file="include/footer.jsp" %>

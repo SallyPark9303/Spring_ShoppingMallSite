@@ -4,8 +4,8 @@
 <body>
 <style>
 
-#loginBtn {font-size:20px; }
-#joinBtn{font-size:20px;}
+#loginBtn {font-size:20px; font-family: 나눔고딕 ExtraBold; color:#C4E538; margin: 20px; }
+#joinBtn{font-size:20px; font-family: 나눔고딕 ExtraBold; margin: 20px; }
 
 </style>
 
@@ -32,6 +32,7 @@
  <li>
  <a href="/shop/cartList">카트 리스트</a>
  </li>
+ <li><a href="/shop/orderList">주문 리스트</a></li>
  <li>
   <a href="/member/signout">로그아웃</a>
  </li>

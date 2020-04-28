@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <body>
 
 <style>
 
  
- footer#footer { background:#f9f9f9; padding:20px; margin-top:700px;}
+ footer#footer { background:#f9f9f9; padding:20px; }
  footer#footer ul li { display:inline-block; margin-right:10px; }	
  
 

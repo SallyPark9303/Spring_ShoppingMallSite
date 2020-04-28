@@ -20,12 +20,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.board.domain.CategoryVO;
 import com.board.domain.GoodsVO;
 import com.board.domain.GoodsViewVO;
+import com.board.domain.OrderListVO;
+import com.board.domain.OrderVO;
+import com.board.domain.ReplyListVO;
+import com.board.domain.ReplyVO;
 import com.board.service.AdminService;
 import com.board.utils.UploadFileUtils;
 
@@ -213,5 +218,76 @@ public String getGoodsModify(GoodsVO vo, MultipartFile file, HttpServletRequest 
 		 return; 
 		}
 		
+	// 주문 목록
+	@GetMapping("/shop/orderList")
+	public void getOrderList(Model model) throws Exception {
+	 logger.info("get order list");
+	   
+	 List<OrderVO> orderList = adminService.orderList();
+	 
+	 model.addAttribute("orderList", orderList);
 	}
+
+	// 주문 상세 목록
+	@GetMapping("/shop/orderView")
+	public void getOrderView(@RequestParam("n") String orderId,
+	      OrderVO order, Model model) throws Exception {
+	 logger.info("get order view");
+	 
+	 order.setOrderId(orderId);  
+	 List<OrderListVO> orderView = adminService.orderView(order);
+	 
+	 model.addAttribute("orderView", orderView);
+	}
+	//배송 상태 
+	@PostMapping("/shop/orderView")
+	public String postOrderView(OrderVO order) {
+		
+		
+		
+		adminService.delivery(order);
+		
+		//상품 수량 업데이트
+	   List<OrderListVO> orderView =adminService.orderView(order);
+		
+		GoodsVO goods = new GoodsVO();
+		
+		for(OrderListVO i : orderView) {
+			 goods.setGdsNum(i.getGdsNum());
+			 goods.setGdsStock(i.getCartStock());
+			
+			 adminService.changestock(goods);			
+		}
+		
+		
+		return "redirect:/admin/shop/orderView?n=" + order.getOrderId();
+       
+
+	
+	}
+	
+	//모든 소감 댓글 목록
+	@GetMapping("/shop/allReply")
+	public void getAllReply(Model model) throws Exception {
+		 logger.info("get all reply");
+		   
+		 List<ReplyListVO> reply = adminService.replylist();
+		 
+		 model.addAttribute("reply", reply);
+
+	}
+	
+	//모든 소감 댓글 삭제
+	
+	@PostMapping("/shop/allReply")
+	public String deleteReply(ReplyVO reply) {
+		
+		adminService.replydelete(reply.getRNum());
+		
+		return "redirect:/admin/shop/allReply";
+	}
+	
+
+	
+}
 

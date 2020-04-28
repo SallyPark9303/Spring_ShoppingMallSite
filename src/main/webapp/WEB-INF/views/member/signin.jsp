@@ -39,26 +39,32 @@
     
         margin: 0 auto; /* Added */
         float: none; /* Added */
-        margin-bottom: 10px; /* Added */
+        margin-bottom: 90px; /* Added */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	
 	.form-signin .form-control {
-  		position: relative;
-  		height: auto;
-  		-webkit-box-sizing: border-box;
-     	-moz-box-sizing: border-box;
-        	 box-sizing: border-box;
-  		padding: 10px;
-  		font-size: 16px;
+  		position: relative; !important;
+  		height: auto; !important;
+  		width: 80%; !important;
+  		-webkit-box-sizing: border-box; !important;
+     	-moz-box-sizing: border-box; !important;
+        	 box-sizing: border-box; !important;
+  		padding: 10px; !important;
+  		font-size: 16px; !important;
+  		margin:20px; !important;
 	}
+	
+	
+	.form-signin-heading{
+	font-family: 나눔고딕 ; font-size:15px; margin:20px;  }
 
 
 </style>
 
  <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
 
-	<div class="card align-middle" style="width:470px; border-radius:20px;">
+	<div class="card align-middle">
 		<div class="card-title" style="margin-top:30px;">
 			<h2 class="card-title text-center" style="color:#113366;">가로세로에 오신걸 환영합니다.</h2>
 		</div>
@@ -82,7 +88,7 @@
 
 <section id="content">
  <form class="form-signin" role="form" action="/member/signin" method="post" >
-   <h5 class="form-signin-heading">로그인 정보를 입력하세요</h5>
+   <h5 class="form-signin-heading" >로그인 정보를 입력하세요</h5>
   <div class="input_area">
    <label for="userId"  class="sr-only">아이디</label>
    <input  class="form-control" type="email" id="userId" name="userId" placeholder="your Email" required="required" />      

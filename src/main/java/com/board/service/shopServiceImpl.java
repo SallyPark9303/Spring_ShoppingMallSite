@@ -10,6 +10,9 @@ import com.board.domain.CartVO;
 import com.board.domain.CategoryVO;
 import com.board.domain.GoodsVO;
 import com.board.domain.GoodsViewVO;
+import com.board.domain.OrderDetailVO;
+import com.board.domain.OrderListVO;
+import com.board.domain.OrderVO;
 import com.board.domain.ReplyListVO;
 import com.board.domain.ReplyVO;
 import com.board.mapper.adminMapper;
@@ -61,6 +64,58 @@ public class shopServiceImpl implements shopService {
 		// TODO Auto-generated method stub
 		return mapper.cartList(userId);
 	}
+
+	@Override
+	public void deleteCart(CartVO cart) {
+		// TODO Auto-generated method stub
+	    mapper.deleteCart(cart);
+		
+	}
+
+	@Override
+	public void orderInfo(OrderVO order) {
+		// TODO Auto-generated method stub
+		mapper.orderInfo(order);
+	}
+
+	@Override
+	public void orderInfo_Details(OrderDetailVO orderDetail) {
+		// TODO Auto-generated method stub
+		mapper.orderInfo_Details(orderDetail);
+		
+	}
+
+	@Override
+	public void cartAllDelete(String userId) {
+		// TODO Auto-generated method stub
+		mapper.cartAllDelete(userId);
+	}
+
+	@Override
+	public List<OrderVO> orderList(OrderVO orderList) {
+		// TODO Auto-generated method stub
+		return mapper.orderList(orderList);
+	}
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) {
+		// TODO Auto-generated method stub
+		return mapper.orderView(order);
+	}
+
+	@Override
+	public void deleteReply(ReplyVO reply) {
+		// TODO Auto-generated method stub
+		mapper.deleteReply(reply);
+	}
+
+	@Override
+	public String idCheck(int rNum) {
+		// TODO Auto-generated method stub
+		return mapper.replyUserIdCheck(rNum);
+	}
+
+
 
 	
 
