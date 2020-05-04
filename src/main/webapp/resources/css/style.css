@@ -82,7 +82,7 @@ h3#cata {font-family: CookieRunBold; font-size: 25px; margin:10px;}
 	
 
   section#content ul li { display:inline-block; margin:5px; }
- section#content div.goodsThumb img { width:300px; height:400px; }
+ section#content div.goodsThumb img { width:200px; height:300px; }
  section#content div.goodsPrice { padding:10px 0; text-align:center; font-size:40px; font-family: 'CookieRunBold'; }
  section#content div.goodsPrice a { color:#000; }
  
@@ -94,8 +94,8 @@ h3#cata {font-family: CookieRunBold; font-size: 25px; margin:10px;}
  section#content div.gdsInfo { font-size:20px; font-family: 'martdreamBold'; line-height:2; }
  section#content div.gdsInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
  section#content div.gdsInfo .delete { text-align:right; }
- section#content div.gdsInfo .delete button { font-size:22px;
-            padding:5px 10px; border:1px solid #eee; background:#eee;}
+ section#content div.gdsInfo .delete button { font-size:20px;
+            padding:5px 10px; border:1px solid #eee; background:#ace6f7;}
             
             
 section#container div.goods {  font-family: 'martdreamBold';

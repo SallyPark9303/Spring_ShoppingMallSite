@@ -132,7 +132,7 @@ delete tbl_reply where rNum = #{rNum}
 <!-- 모든 상품 리스트 -->
 <select id="allgoodsList" resultType="com.board.domain.GoodsVO">
 
-select gdsThumbImg, gdsPrice from tbl_goods
+select gdsThumbImg, gdsPrice, gdsNum from tbl_goods 
 
 </select>
 

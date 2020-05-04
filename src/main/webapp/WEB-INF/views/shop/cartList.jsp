@@ -86,7 +86,7 @@ aside#aside ul {
 .allCheck input { width:16px; height:16px; }
 .allCheck label { margin-left:10px; }
 .deleteBtn { float:right; width:100px; text-align:right;  }
-.deleteBtn button { font-size:18px; padding:5px 10px; border:1px solid #eee; background:#eee;}
+.deleteBtn button { font-size:15px; padding:5px 10px; border:1px solid #eee; background:#ace6f7;}
 
 .checkBox { float:left; width:30px; }
 .checkBox input { width:16px; height:16px; }
@@ -393,7 +393,7 @@ aside#aside ul {
 						<script>
 						$(".cancel_btn").click(function(){
 							$(".orderInfo").slideUp();  // $(".orderInfo")를 숨기고
-							$(".orderOpne_bnt").slideDown();  // $(".orderOpne_bnt")를 나타냄
+							$(".orderinfoBtn").slideDown();  // $(".orderOpne_bnt")를 나타냄
 						});						
 						</script>
 						

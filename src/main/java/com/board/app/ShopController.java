@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.board.domain.CartListVO;
 import com.board.domain.CartVO;
+import com.board.domain.GoodsVO;
 import com.board.domain.GoodsViewVO;
 import com.board.domain.MemberVO;
 import com.board.domain.OrderDetailVO;
@@ -29,6 +30,7 @@ import com.board.domain.OrderListVO;
 import com.board.domain.OrderVO;
 import com.board.domain.ReplyListVO;
 import com.board.domain.ReplyVO;
+import com.board.service.AdminService;
 
 @Controller
 @RequestMapping("/shop/*")
@@ -36,7 +38,8 @@ public class ShopController {
 	private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 	@Autowired
 	com.board.service.shopService shopService;
-	 
+	@Autowired
+	 private AdminService adminService;
 	
 	// 카테고리별 상품 리스트
 	 @GetMapping("/list")
@@ -62,6 +65,10 @@ public class ShopController {
 		 List<ReplyListVO> replylist = shopService.replylist(gdsNum);
 
   		   model.addAttribute("replylists", replylist);
+  		   
+  		   //선택 상품이동
+  			List<GoodsVO> allgoodsList = adminService.allgoodsList();
+  			model.addAttribute("allgoodsList", allgoodsList);
 
 	 }
 	 
@@ -186,17 +193,13 @@ public class ShopController {
 		 
 		 Calendar cal = Calendar.getInstance(); //달력 메서드를 이용해 연/월/일 추출
 		 int year= cal.get(Calendar.YEAR);
-		 
-		 String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) +1);
+		  String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) +1);
 	     //DecimalFormat("00"): 두자릿 수로 자릿수 채우기  ex) 01,11	 
-	
-		 String ymd = ym + new DecimalFormat("00").format(cal.get(Calendar.DATE));
-		 String subNum = "";
-		 
-		 for(int i=1; i <= 6; i ++) {
+		  String ymd = ym + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+		  String subNum = "";
+		  for(int i=1; i <= 6; i ++) {
 			 subNum += (int)(Math.random()* 10); //6자리의 랜덤 숫자인 subNum
 			 
-		 }
 		 
 		 String orderId = ymd + "_" + subNum; // [날짜]_[랜덤숫자]로 이루어진  고유의 문자열 생성
 		 
@@ -204,6 +207,7 @@ public class ShopController {
 		 order.setUserId(userId);
 		 
 		 shopService.orderInfo(order);
+	
 		 
 		 orderDetail.setOrderId(orderId);
 		 shopService.orderInfo_Details(orderDetail);

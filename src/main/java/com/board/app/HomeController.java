@@ -36,8 +36,6 @@ public class HomeController {
 	public String home(Model model) {
 		
 		List<GoodsVO> allgoodsList = adminService.allgoodsList();
-		
-		
 		model.addAttribute("allgoodsList", allgoodsList);
 		
 		return "home";
